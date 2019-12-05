@@ -1,0 +1,37 @@
+{
+  "name": "react-excel",
+  "version": "1.0.0",
+  "description": "export table data as excel format with some styles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Great-hijack/react-excel.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "excel",
+    "xlsx",
+    "javascript",
+    "npm"
+  ],
+  "author": "great hijack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Great-hijack/react-excel/issues"
+  },
+  "homepage": "https://github.com/Great-hijack/react-excel#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.13",
+    "multer": "^1.4.2",
+    "validator": "^12.1.0"
+  }
+}
