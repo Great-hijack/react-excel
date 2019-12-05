@@ -1,0 +1,36 @@
+.table td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.table th {
+    padding: 5px;
+}
+
+#react-paginate li {
+    border: solid blue 2px;
+    padding: 10px;
+    margin: 0 1px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#react-paginate ul {
+    display: inline-block;
+    margin-left: 20px;
+    padding-left: 0;
+ }
+
+#react-paginate li a {
+    padding: 2px 5px;
+    display: inline-block;
+    color: #000;
+    outline: none;
+    text-decoration: none;
+}
+
+#react-paginate li.active {
+  background: rgb(46, 184, 33);
+  outline: none;
+}
