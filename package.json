@@ -2,9 +2,13 @@
   "name": "react-excel",
   "version": "1.0.0",
   "description": "export table data as excel format with some styles",
-  "main": "index.js",
+  "main": "./backend/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js --prefix backend",
+    "server": "nodemon server.js --prefix backend",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -16,7 +20,10 @@
     "excel",
     "xlsx",
     "javascript",
-    "npm"
+    "npm",
+    "excelstyle",
+    "style",
+    "format"
   ],
   "author": "great hijack",
   "license": "ISC",
