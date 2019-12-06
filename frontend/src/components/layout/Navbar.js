@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 class TopNavbar extends Component {
   onLogoutClick = e => {
@@ -22,10 +23,10 @@ class TopNavbar extends Component {
             <Nav.Link href="/file/list">File List</Nav.Link>
             <Nav.Link href="/file/upload">Upload File</Nav.Link>
           </Nav>
-          <Nav>
-            {this.props.auth.isAuthenticated && <Navbar.Text style={{marginRight:"20px"}}>Signed in as : {this.props.auth.user.name} </Navbar.Text>}
+          <Form inline>
+            {this.props.auth.isAuthenticated && <Navbar.Text style={{ marginRight: "20px" }}>Signed in as : {this.props.auth.user.name} </Navbar.Text>}
             {this.props.auth.isAuthenticated && <Button variant="outline-success" onClick={this.onLogoutClick}>Logout</Button>}
-          </Nav>
+          </Form>
         </Navbar.Collapse>
       </Navbar>
     );
