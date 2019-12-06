@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-// import getDateStr from '../../utils/datetime';
+import exportFilesToExcel from '../../utils/export2excel';
 
 class FileList extends Component {
   constructor(props) {
@@ -71,6 +71,25 @@ class FileList extends Component {
     })
   }
 
+  exportToExecel(outputName) {
+    axios.get('/api/files', {
+      params: {
+        user: this.props.auth.user,
+        config: {
+          all: true,
+          currentPageNumber: this.state.currentPageNumber,
+          itemsPerPage: this.state.itemsPerPage
+        }
+      }
+    })
+      .then(response => {
+        exportFilesToExcel(response.data.files, outputName);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -80,7 +99,7 @@ class FileList extends Component {
     let totalPages = Math.ceil(this.state.totalItems / this.state.itemsPerPage);
 
     return (
-      <Container style={{paddingTop: "30px"}}>
+      <Container style={{ paddingTop: "30px" }}>
         <Row>
           <Col className="h3">Files List</Col>
           <Button onClick={(e) => this.exportToExecel("exported")}>Export</Button>

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import fetchProgress from 'fetch-progress'
-import path from 'path';
-import upath from 'upath';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import getDateStr from '../../utils/datetime';
+import getBaseName from '../../utils/pathUtil';
 
 class TableRow extends Component {
     constructor(props) {
@@ -29,7 +28,7 @@ class TableRow extends Component {
     }
 
     downloadFile() {
-        const filename = path.basename(upath.normalize(this.props.file.saved_url));
+        const filename = getBaseName(this.props.file.saved_url);
         const self = this;
 
         fetch('/api/files/download/' + this.props.file._id)
@@ -71,7 +70,7 @@ class TableRow extends Component {
                 <td style={{ width: "140px" }}>{getDateStr(this.props.file.register_date)}</td>
                 <td style={{ width: "150px" }}>{this.props.file.owner}</td>
                 <td style={{ width: "90px" }}>{this.props.file.type}</td>
-                <td>{path.basename(upath.normalize(this.props.file.saved_url))}</td>
+                <td>{getBaseName(this.props.file.saved_url)}</td>
                 <td>{this.props.file.description}</td>
                 <td style={{ width: "52px" }}>
                     <OverlayTrigger overlay={<Tooltip>Download</Tooltip>}>
