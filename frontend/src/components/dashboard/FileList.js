@@ -9,7 +9,9 @@ import ReactPaginate from 'react-paginate';
 import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+// import getDateStr from '../../utils/datetime';
 
 class FileList extends Component {
   constructor(props) {
@@ -78,13 +80,13 @@ class FileList extends Component {
     let totalPages = Math.ceil(this.state.totalItems / this.state.itemsPerPage);
 
     return (
-      <Container style={{ maxWidth: "none", padding: "30px" }}>
-        <Row className="justify-content-between">
-          <h3>Files List</h3>
-          <Button variant="success" onClick={(e) => this.exportToExecel("exported")}>Export</Button>
+      <Container style={{paddingTop: "30px"}}>
+        <Row>
+          <Col className="h3">Files List</Col>
+          <Button onClick={(e) => this.exportToExecel("exported")}>Export</Button>
         </Row>
         <Row>
-          <Table striped bordered hover style={{ marginTop: "20px" }}>
+          <Table striped bordered hover>
             <thead>
               <tr>
                 <th>No</th>
@@ -103,8 +105,8 @@ class FileList extends Component {
         </Row>
         <Row id="react-paginate" className="justify-content-md-center">
           <ReactPaginate
-            previousLabel={'<'}
-            nextLabel={'>'}
+            previousLabel={'Prev'}
+            nextLabel={'Next'}
             breakLabel={'...'}
             breakClassName={'break-me'}
             pageCount={totalPages}

@@ -75,7 +75,7 @@ class FileUpload extends Component {
     render() {
         return (
             <Container style={{marginTop:"50px"}}>
-                <h3>Upload file to check</h3>
+                <Row className="h3">Upload file to check</Row>
                 <Form encType="multipart/form-data" onSubmit={this.onSubmit} style={{marginTop:"50px"}}>
                     <Form.Group as={Row}>
                         <Form.Label column sm={3}>File Type: </Form.Label>
@@ -114,8 +114,8 @@ class FileUpload extends Component {
                         <Col sm={3}>
                         </Col>
                         <Col sm={9}>
-                            <Button type="submit" variant="primary" size="lg" style={{marginRight:"20px"}} disabled={this.state.loaded === 100}>{this.state.loaded === 100 ? "Uploaded" : "Upload"}</Button>
-                            <Button variant="secondary" size="lg" href="/file/list">Back to List</Button>
+                            <Button type="submit" variant="primary" style={{marginRight:"20px"}} disabled={this.state.loaded === 100}>{this.state.loaded === 100 ? "Uploaded" : "Upload"}</Button>
+                            <Button variant="secondary" href="/file/list">Back to List</Button>
                         </Col>
                     </Form.Group>
                 </Form>
