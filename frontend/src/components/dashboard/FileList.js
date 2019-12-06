@@ -74,13 +74,6 @@ class FileList extends Component {
     this.props.logoutUser();
   };
 
-  getDateStr(dateStr) {
-    if (dateStr === '' || !dateStr)
-      return '';
-    const date = new Date(dateStr);
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-  }
-
   render() {
     let totalPages = Math.ceil(this.state.totalItems / this.state.itemsPerPage);
 

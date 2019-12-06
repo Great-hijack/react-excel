@@ -8,6 +8,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import getDateStr from '../../utils/datetime';
 
 class TableRow extends Component {
     constructor(props) {
@@ -60,13 +61,6 @@ class TableRow extends Component {
             });
     }
 
-    getDateStr(dateStr) {
-        if (dateStr === '' || !dateStr)
-            return '';
-        const date = new Date(dateStr);
-        return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-    }
-
     render() {
         const index = this.props.index;
         const currentPage = this.props.currentPage;
@@ -74,7 +68,7 @@ class TableRow extends Component {
         return (
             <tr key={index}>
                 <td style={{ width: "20px" }}>{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                <td style={{ width: "140px" }}>{this.getDateStr(this.props.file.register_date)}</td>
+                <td style={{ width: "140px" }}>{getDateStr(this.props.file.register_date)}</td>
                 <td style={{ width: "150px" }}>{this.props.file.owner}</td>
                 <td style={{ width: "90px" }}>{this.props.file.type}</td>
                 <td>{path.basename(upath.normalize(this.props.file.saved_url))}</td>
