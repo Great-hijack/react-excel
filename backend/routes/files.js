@@ -82,7 +82,7 @@ fileRoutes.route('/update/:id').post(function (req, res) {
 fileRoutes.route('/download/:id').get(function (req, res) {
     let file_id = req.params.id;
     File.findById(file_id, function (err, file) {
-        const data = fs.readFileSync(file.file_url)
+        const data = fs.readFileSync(file.saved_url)
         if (err) res.status(400).send("download failed");;
         res.status(200).send(data);
     });

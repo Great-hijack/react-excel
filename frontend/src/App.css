@@ -1,0 +1,16 @@
+.table td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.table th {
+    padding: 5px;
+}
+
+#react-paginate li :hover {
+    cursor: pointer;
+}
+
+#react-paginate li.disabled :hover{
+    cursor: not-allowed;
+}
